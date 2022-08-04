@@ -20,6 +20,7 @@
     <string name="add_product">Add Product</string>
     <string name="_0">0</string>
     <string name="cancel">Cancel</string>
+    <string name="network_error_404">NETWORK ERROR 404</string>
 
 
 </resources>

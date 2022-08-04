@@ -7,7 +7,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
-
+//suspend function which return Status<T>
+//it takes coroutine(Dispatcher.IO) as a coroutine scope and a suspend apiCall
+//Status<T>  is a generic class which handles response type Status.Success , Status.Failure , Status.NetworkError
 suspend fun <T> networkRequest(dispatcher: CoroutineDispatcher = Dispatchers.IO, apiCall: suspend () -> T): Status<T> {
 
     return withContext(dispatcher) {

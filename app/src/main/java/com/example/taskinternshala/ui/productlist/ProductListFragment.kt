@@ -1,19 +1,19 @@
 package com.example.taskinternshala.ui.productlist
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taskinternshala.application.TaskApp
 import com.example.taskinternshala.databinding.FragmentProductListBinding
 import com.example.taskinternshala.model.ProductsItem
 import com.example.taskinternshala.utils.Status
+import org.koin.android.ext.android.get
 
 
 class ProductListFragment : Fragment() {
@@ -22,16 +22,18 @@ class ProductListFragment : Fragment() {
     private var _binding: FragmentProductListBinding? = null
     private val binding : FragmentProductListBinding get()= _binding!!
 
+    private  var  viewModel = get<ProductListViewModel>()
     //later initialize of adapter class
     private lateinit var adapter: ProductListAdapter
 
-    private val viewModel : ProductListViewModel by viewModels()
+  //  private val viewModel : ProductListViewModel by viewModels()
     private var list = ArrayList<ProductsItem>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
+
        _binding = FragmentProductListBinding.inflate(layoutInflater , container ,false)
 
         (activity as AppCompatActivity).supportActionBar?.title = "Products & Services"
@@ -40,13 +42,13 @@ class ProductListFragment : Fragment() {
         viewModel.myResponse.observe(viewLifecycleOwner){
             when(it){
                 is Status.Failure -> {
-                    Log.d("gajsaniks", "onCreateView: FAILED")
+                   binding.progressBar2.isVisible = true
                 }
                 is Status.Success -> {
                     loadRecyclerView(it.value as ArrayList<ProductsItem>)
                 }
                 is Status.NetworkError -> {
-                    Log.d("gajsaniks", "onCreateView: NETWORK ERROR")
+                    binding.etError.isVisible = true
                 }
             }
         }

@@ -1,6 +1,7 @@
 package com.example.taskinternshala.application
 
 import android.app.Application
+import com.example.taskinternshala.data.network.networkModule
 import com.example.taskinternshala.di.applicationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -19,7 +20,7 @@ class TaskApp : Application() {
 
         startKoin {
             androidContext(instance)
-            modules(applicationModule)
+            modules(listOf(applicationModule, networkModule))
         }
 
     }

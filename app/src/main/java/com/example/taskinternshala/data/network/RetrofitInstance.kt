@@ -1,20 +1,32 @@
 package com.example.taskinternshala.data.network
 
 import com.example.taskinternshala.utils.Constants
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitInstance {
+/**
+ * network module provide single instance
+ */
+val networkModule = module {
+    single { provideProductListApiService(get()) }
+    single { provideRetrofit() }
+}
 
+/**
+ * fun return  retrofit instance
+ */
 
-    private val retrofit by lazy {
-        Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
+fun provideRetrofit(): Retrofit {
+    return Retrofit.Builder()
+        .baseUrl(Constants.BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+}
 
-    val api : ProductListApi by lazy {
-        retrofit.create(ProductListApi::class.java)
-    }
+/**
+ * f
+ */
+fun provideProductListApiService(retrofit: Retrofit): ProductListApi {
+    return retrofit.create(ProductListApi::class.java)
 }

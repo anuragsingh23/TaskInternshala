@@ -3,14 +3,12 @@ package com.example.taskinternshala.ui.productadd
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.taskinternshala.model.AddProductRequestBody
-import com.example.taskinternshala.repository.TaskRepoImpl
+import com.example.taskinternshala.repository.TaskRepo
 import com.example.taskinternshala.utils.Status
 import com.example.taskinternshala.utils.Toast
 import kotlinx.coroutines.launch
 
-class ProductAddViewModel: ViewModel(){
-
-    private val repo = TaskRepoImpl()
+class ProductAddViewModel constructor(private val repo: TaskRepo): ViewModel(){
 
     fun addProduct(addProductRequestBody: AddProductRequestBody){
         viewModelScope.launch {

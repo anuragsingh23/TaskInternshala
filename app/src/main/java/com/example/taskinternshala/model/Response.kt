@@ -5,6 +5,7 @@ import androidx.annotation.Keep
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+//data class contains objects in a form of list that we fetch using @GET request using retrofit
 @Keep
 @Serializable
 data class ProductsItem(

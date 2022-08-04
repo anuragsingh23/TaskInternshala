@@ -4,6 +4,7 @@ import androidx.annotation.Keep
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+// data class for @Post to Add Product to server side
 @Keep
 @Serializable
 data  class AddProductRequestBody(

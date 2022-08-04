@@ -35,14 +35,15 @@
         app:layout_constraintTop_toBottomOf="@+id/tvType"
         app:layout_constraintVertical_bias="0.0">
 
+
         <RadioButton
-            android:id="@+id/rb1"
+            android:id="@+id/radio_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/product" />
 
         <RadioButton
-            android:id="@+id/rb2"
+            android:id="@+id/radio_service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/service" />
