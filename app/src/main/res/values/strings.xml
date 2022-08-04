@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">TaskInternshala</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add">ADD</string>
+    <string name="new_product">new product</string>
+    <string name="product_type">product type</string>
+    <string name="product_price">260.00000</string>
+    <string name="product_tax">18%</string>
+    <string name="title_screen_one">Products and Services</string>
+    <string name="title_screen_two">Add Products</string>
+    <string name="rupee">₹</string>
+    <string name="product">Product</string>
+    <string name="service">Service</string>
+    <string name="type">Type</string>
+    <string name="product_name">Product Name*</string>
+    <string name="selling_price">Selling Price</string>
+    <string name="selling">₹ 10000.00</string>
+    <string name="tax">Tax Rate %</string>
+    <string name="add_product">Add Product</string>
+    <string name="_0">0</string>
+    <string name="cancel">Cancel</string>
+
+
+</resources>
